@@ -1,4 +1,4 @@
-System.register(['angular2/core', './trick.service'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './trick.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,34 +10,42 @@ System.register(['angular2/core', './trick.service'], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, trick_service_1;
+    var core_1, router_1, trick_service_1;
     var DashboardComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
+            function (router_1_1) {
+                router_1 = router_1_1;
+            },
             function (trick_service_1_1) {
                 trick_service_1 = trick_service_1_1;
             }],
         execute: function() {
             DashboardComponent = (function () {
-                function DashboardComponent(_trickService) {
+                function DashboardComponent(_router, _trickService) {
+                    this._router = _router;
                     this._trickService = _trickService;
-                    this.tricks = [];
+                    this.trickes = [];
                 }
                 DashboardComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this._trickService.getTricks()
-                        .then(function (tricks) { return _this.tricks = tricks.slice(1, 5); });
+                        .then(function (trickes) { return _this.trickes = trickes.slice(1, 5); });
                 };
-                DashboardComponent.prototype.gotoDetail = function () { };
+                DashboardComponent.prototype.gotoDetail = function (trick) {
+                    var link = ['TrickDetail', { id: trick.id }];
+                    this._router.navigate(link);
+                };
                 DashboardComponent = __decorate([
                     core_1.Component({
                         selector: 'my-dashboard',
-                        templateUrl: 'app/template/dashboard.component.html'
+                        templateUrl: 'app/templates/dashboard.component.html',
+                        styleUrls: ['app/css/dashboard.component.css']
                     }), 
-                    __metadata('design:paramtypes', [trick_service_1.TrickService])
+                    __metadata('design:paramtypes', [router_1.Router, trick_service_1.TrickService])
                 ], DashboardComponent);
                 return DashboardComponent;
             }());

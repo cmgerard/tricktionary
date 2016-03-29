@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './trick.service', './tricks.component', './dashboard.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './trick.service', './dashboard.component', './tricks.component', './trick-detail.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './trick.service', './trick
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, trick_service_1, tricks_component_1, dashboard_component_1;
+    var core_1, router_1, trick_service_1, dashboard_component_1, tricks_component_1, trick_detail_component_1;
     var AppComponent;
     return {
         setters:[
@@ -23,21 +23,25 @@ System.register(['angular2/core', 'angular2/router', './trick.service', './trick
             function (trick_service_1_1) {
                 trick_service_1 = trick_service_1_1;
             },
+            function (dashboard_component_1_1) {
+                dashboard_component_1 = dashboard_component_1_1;
+            },
             function (tricks_component_1_1) {
                 tricks_component_1 = tricks_component_1_1;
             },
-            function (dashboard_component_1_1) {
-                dashboard_component_1 = dashboard_component_1_1;
+            function (trick_detail_component_1_1) {
+                trick_detail_component_1 = trick_detail_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.title = 'Tricktionary';
+                    this.title = 'Tour of Tricks';
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n  <h1>{{title}}</h1>\n  <nav>\n    <a [routerLink]=\"['Dashboard']\">Dashboard</a>\n    <a [routerLink]=\"['Tricks']\">Tricks</a>\n  </nav>\n  <router-outlet></router-outlet>\n",
+                        template: "\n    <h1>{{title}}</h1>\n    <nav>\n      <a [routerLink]=\"['Dashboard']\">Dashboard</a>\n      <a [routerLink]=\"['Tricks']\">Tricks</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
+                        styleUrls: ['app/css/app.component.css'],
                         directives: [router_1.ROUTER_DIRECTIVES],
                         providers: [
                             router_1.ROUTER_PROVIDERS,
@@ -50,6 +54,11 @@ System.register(['angular2/core', 'angular2/router', './trick.service', './trick
                             name: 'Dashboard',
                             component: dashboard_component_1.DashboardComponent,
                             useAsDefault: true
+                        },
+                        {
+                            path: '/detail/:id',
+                            name: 'TrickDetail',
+                            component: trick_detail_component_1.TrickDetailComponent
                         },
                         {
                             path: '/tricks',

@@ -1,4 +1,4 @@
-System.register(['angular2/core', './mock.tricks'], function(exports_1, context_1) {
+System.register(['./mock-tricks', 'angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,15 @@ System.register(['angular2/core', './mock.tricks'], function(exports_1, context_
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, mock_tricks_1;
+    var mock_tricks_1, core_1;
     var TrickService;
     return {
         setters:[
-            function (core_1_1) {
-                core_1 = core_1_1;
-            },
             function (mock_tricks_1_1) {
                 mock_tricks_1 = mock_tricks_1_1;
+            },
+            function (core_1_1) {
+                core_1 = core_1_1;
             }],
         execute: function() {
             TrickService = (function () {
@@ -26,6 +26,9 @@ System.register(['angular2/core', './mock.tricks'], function(exports_1, context_
                 }
                 TrickService.prototype.getTricks = function () {
                     return Promise.resolve(mock_tricks_1.TRICKS);
+                };
+                TrickService.prototype.getTrick = function (id) {
+                    return Promise.resolve(mock_tricks_1.TRICKS).then(function (tricks) { return tricks.filter(function (trick) { return trick.id === id; })[0]; });
                 };
                 TrickService = __decorate([
                     core_1.Injectable(), 

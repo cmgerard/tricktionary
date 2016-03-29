@@ -1,4 +1,4 @@
-System.register(['angular2/core', './trick'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './trick', './trick.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,20 +10,37 @@ System.register(['angular2/core', './trick'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, trick_1;
+    var core_1, router_1, trick_1, trick_service_1;
     var TrickDetailComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
+            function (router_1_1) {
+                router_1 = router_1_1;
+            },
             function (trick_1_1) {
                 trick_1 = trick_1_1;
+            },
+            function (trick_service_1_1) {
+                trick_service_1 = trick_service_1_1;
             }],
         execute: function() {
             TrickDetailComponent = (function () {
-                function TrickDetailComponent() {
+                function TrickDetailComponent(_trickService, _routeParams) {
+                    this._trickService = _trickService;
+                    this._routeParams = _routeParams;
                 }
+                TrickDetailComponent.prototype.ngOnInit = function () {
+                    var _this = this;
+                    var id = +this._routeParams.get('id');
+                    this._trickService.getTrick(id)
+                        .then(function (trick) { return _this.trick = trick; });
+                };
+                TrickDetailComponent.prototype.goBack = function () {
+                    window.history.back();
+                };
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', trick_1.Trick)
@@ -31,9 +48,10 @@ System.register(['angular2/core', './trick'], function(exports_1, context_1) {
                 TrickDetailComponent = __decorate([
                     core_1.Component({
                         selector: 'my-trick-detail',
-                        template: "\n    <div *ngIf=\"trick\">\n      <h2>{{trick.name}} details!</h2>\n      <div><label>id: </label>{{trick.id}}</div>\n    </div>\n  "
+                        templateUrl: 'app/templates/trick-detail.component.html',
+                        styleUrls: ['app/css/trick-detail.component.css']
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [trick_service_1.TrickService, router_1.RouteParams])
                 ], TrickDetailComponent);
                 return TrickDetailComponent;
             }());
@@ -41,4 +59,4 @@ System.register(['angular2/core', './trick'], function(exports_1, context_1) {
         }
     }
 });
-//# sourceMappingURL=trick-details.component.js.map
+//# sourceMappingURL=trick-detail.component.js.map
