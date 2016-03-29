@@ -28,12 +28,12 @@ System.register(['angular2/core', 'angular2/router', './trick.service'], functio
                 function DashboardComponent(_router, _trickService) {
                     this._router = _router;
                     this._trickService = _trickService;
-                    this.trickes = [];
+                    this.tricks = [];
                 }
                 DashboardComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this._trickService.getTricks()
-                        .then(function (trickes) { return _this.trickes = trickes.slice(1, 5); });
+                        .then(function (tricks) { return _this.tricks = tricks.slice(1, 5); });
                 };
                 DashboardComponent.prototype.gotoDetail = function (trick) {
                     var link = ['TrickDetail', { id: trick.id }];
