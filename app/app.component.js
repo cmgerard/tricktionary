@@ -50,18 +50,18 @@ System.register(['angular2/core', 'angular2/router', './trick.service', './dashb
                     }),
                     router_1.RouteConfig([
                         {
-                            path: '#dashboard',
+                            path: '/dashboard',
                             name: 'Dashboard',
                             component: dashboard_component_1.DashboardComponent,
                             useAsDefault: true
                         },
                         {
-                            path: '#detail/:id',
+                            path: '/detail/:id',
                             name: 'TrickDetail',
                             component: trick_detail_component_1.TrickDetailComponent
                         },
                         {
-                            path: '#tricks',
+                            path: '/tricks',
                             name: 'Tricks',
                             component: tricks_component_1.TricksComponent
                         }
