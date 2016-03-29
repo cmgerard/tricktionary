@@ -33,7 +33,7 @@ System.register(['angular2/core', 'angular2/router', './trick.service'], functio
                 DashboardComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this._trickService.getTricks()
-                        .then(function (tricks) { return _this.tricks = tricks.slice(1, 5); });
+                        .then(function (tricks) { return _this.tricks = tricks; } /*.slice(1,5)*/ /*.slice(1,5)*/);
                 };
                 DashboardComponent.prototype.gotoDetail = function (trick) {
                     var link = ['TrickDetail', { id: trick.id }];
