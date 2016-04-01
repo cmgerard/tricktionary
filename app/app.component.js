@@ -56,7 +56,7 @@ System.register(['angular2/core', 'angular2/router', './trick.service', './dashb
                             useAsDefault: true
                         },
                         {
-                            path: '/detail/:id',
+                            path: '/detail/:id/:id2',
                             name: 'TrickDetail',
                             component: trick_detail_component_1.TrickDetailComponent
                         },

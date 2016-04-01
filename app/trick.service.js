@@ -27,8 +27,8 @@ System.register(['./mock-tricks', 'angular2/core'], function(exports_1, context_
                 TrickService.prototype.getTricks = function () {
                     return Promise.resolve(mock_tricks_1.TRICKS);
                 };
-                TrickService.prototype.getTrick = function (id) {
-                    return Promise.resolve(mock_tricks_1.TRICKS).then(function (tricks) { return tricks.filter(function (trick) { return trick.id === id; })[0]; });
+                TrickService.prototype.getTrick = function (id, id2) {
+                    return Promise.resolve(mock_tricks_1.TRICKS).then(function (tricks) { return tricks.find(function (trick) { return trick.id === id; }).subs.find(function (trick) { return trick.id2 === id2; }); });
                 };
                 TrickService = __decorate([
                     core_1.Injectable(), 

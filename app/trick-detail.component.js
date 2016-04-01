@@ -33,10 +33,9 @@ System.register(['angular2/core', 'angular2/router', './trick', './trick.service
                     this._routeParams = _routeParams;
                 }
                 TrickDetailComponent.prototype.ngOnInit = function () {
-                    var _this = this;
                     var id = +this._routeParams.get('id');
-                    this._trickService.getTrick(id)
-                        .then(function (trick) { return _this.trick = trick; });
+                    var id2 = +this._routeParams.get('id2');
+                    this._trickService.getTrick(id, id2);
                 };
                 TrickDetailComponent.prototype.goBack = function () {
                     window.history.back();
