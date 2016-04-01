@@ -35,7 +35,7 @@ System.register(['angular2/core', 'angular2/router', './trick.service'], functio
                     this._trickService.getTricks().then(function (tricks) { return _this.tricks = tricks; });
                 };
                 DashboardComponent.prototype.gotoDetail = function (trick) {
-                    var link = ['TrickDetail', { id: trick.id }];
+                    var link = ['TrickDetail', { id: trick.id, id2: trick.id }];
                     this._router.navigate(link);
                 };
                 DashboardComponent = __decorate([
