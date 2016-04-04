@@ -40,7 +40,7 @@ System.register(['angular2/core', 'angular2/router', './trick.service', './dashb
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n    <nav>\n      <img src=\"icon.png\" />\n      <div> {{title}}</div>\n      <a [routerLink]=\"['Dashboard']\">Dashboard</a>\n      <a [routerLink]=\"['Tricks']\">Tricks</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
+                        template: "\n    <nav>\n      <img src=\"img/tricktionary2.svg\" />\n      <div> {{title}}</div>\n      <a [routerLink]=\"['Dashboard']\">Dashboard</a>\n      <a [routerLink]=\"['Tricks']\">Tricks</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
                         styleUrls: ['app/css/app.component.css'],
                         directives: [router_1.ROUTER_DIRECTIVES],
                         providers: [
