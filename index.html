@@ -1,45 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="trick">
 <head>
-    <script>
-        if ( window.location.hostname != ' trick.svbeon.tk' ) {
-            window.location.assign("http://trick.svbeon.tk");
-        }
-    </script>
-    <base href="/" />
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="width=device-width , initial-scale=1" name="viewport">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="theme-color" content="#fe3500">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="img/icon.png">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/open-sans.css">
+    <link rel="stylesheet" href="static/css/font-awesome.css">
+    <link rel="icon" href="static/img/icon.png">
     <title>Tricktionary</title>
+    <script src="static/js/angular.min.js"></script>
+    <script src="static/js/angular-resource.min.js"></script>
+    <script src="static/js/angular-route.min.js"></script>
+    <script src="static/js/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyD07mROu__kGOuJ-0MyjtjS6R5-DiTfUpM",
+            authDomain: "project-5641153190345267944.firebaseapp.com",
+            databaseURL: "https://project-5641153190345267944.firebaseio.com",
+            storageBucket: "project-5641153190345267944.appspot.com",
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="static/js/angularfire.min.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="trick.js"></script>
+    <script src="dash/dash.js"></script>
+    <script src="detail/detail.js"></script>
 </head>
 <body>
-    <my-app>Loading...</my-app>
-</body>
-    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
-    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
-    <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>   
-
-    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <script src="node_modules/rxjs/bundles/Rx.js"></script>
-    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-    <script src="node_modules/angular2/bundles/router.dev.js"></script>
-
-
-    <script>
-      System.config({
-        packages: {        
-          app: {
-            format: 'register',
-            defaultExtension: 'js'
-          }
-        }
-      });
-      System.import('app/main')
-            .then(null, console.error.bind(console));
-    </script>
-
+    <nav>
+      <img src="static/img/tricktionary2.svg" />
+      <div> Tricktionary</div>
+      <a href="#!/dash">Dashboard</a>
+      <a href="#!/list">Tricks</a>
+    </nav>
+    <div ng-view></div>
